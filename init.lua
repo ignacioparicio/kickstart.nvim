@@ -97,6 +97,9 @@ vim.g.have_nerd_font = false
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
+--
+-- Enable wrapping without breaking words
+vim.opt.linebreak = true
 
 -- Make line numbers default
 vim.opt.number = true
@@ -918,6 +921,9 @@ require('lazy').setup({
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+
+  -- GitHub Copilot
+  { 'github/copilot.vim', event = 'InsertEnter' },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
