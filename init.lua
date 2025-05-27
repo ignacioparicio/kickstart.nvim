@@ -101,6 +101,9 @@ vim.g.have_nerd_font = false
 -- Enable wrapping without breaking words
 vim.opt.linebreak = true
 
+vim.keymap.set('n', 'q', '<Nop>', { desc = 'Disable macro recording' })
+vim.keymap.set('n', '@', '<Nop>', { desc = 'Disable macro playback' })
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
