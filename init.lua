@@ -97,7 +97,9 @@ vim.g.have_nerd_font = false
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
---
+
+-- Default to no wrapping
+vim.o.wrap = false
 -- Enable wrapping without breaking words
 vim.opt.linebreak = true
 
