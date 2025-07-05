@@ -400,6 +400,7 @@ require('lazy').setup({
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local conf = require('telescope.config').values
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
@@ -410,6 +411,33 @@ require('lazy').setup({
         --   },
         -- },
         -- pickers = {}
+        defaults = {
+          -- start from the builtin rg args, then add hidden + exclude .git
+          vimgrep_arguments = vim.tbl_flatten {
+            conf.vimgrep_arguments,
+            '--hidden',
+            '--glob',
+            '!**/.git/*',
+          },
+        },
+        pickers = {
+          find_files = {
+            hidden = true, -- show dotfiles
+            no_ignore = true, -- ignore .gitignore
+            find_command = {
+              'rg',
+              '--files',
+              '--hidden',
+              '--glob',
+              '!**/.git/*',
+            },
+          },
+          live_grep = {
+            additional_args = function()
+              return { '--hidden', '--glob', '!**/.git/*' }
+            end,
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
