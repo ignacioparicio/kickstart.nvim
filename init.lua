@@ -418,6 +418,8 @@ require('lazy').setup({
             '--hidden',
             '--glob',
             '!**/.git/*',
+            '--glob',
+            '!**/submodules/*',
           },
         },
         pickers = {
@@ -430,11 +432,13 @@ require('lazy').setup({
               '--hidden',
               '--glob',
               '!**/.git/*',
+              '--glob',
+              '!**/submodules/*',
             },
           },
           live_grep = {
             additional_args = function()
-              return { '--hidden', '--glob', '!**/.git/*' }
+              return { '--hidden', '--glob', '!**/.git/*', '--glob', '!**/submodules/*' }
             end,
           },
         },
