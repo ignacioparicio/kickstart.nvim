@@ -1,5 +1,17 @@
 # kickstart.nvim
 
+# Install nvim
+# 1) Replace /usr/local/bin/nvim atomically with the AppImage
+tmp=$(mktemp)
+cp ~/Desktop/nvim-linux-x86_64.appimage "$tmp"
+sudo install -m 0755 "$tmp" /usr/local/bin/nvim
+rm "$tmp"
+
+# 2) Refresh shell’s command hash and verify
+hash -r
+which -a nvim
+nvim -v | head -n2
+
 ## Introduction
 
 A starting point for Neovim that is:
